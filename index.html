@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Live Editor & Previewer</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+  <header class="toolbar">
+    <div class="toolbar-left">
+      <div class="logo">
+        <span class="badge">&lt;/&gt;</span>
+        <h1>HTML Live Previewer</h1>
+      </div>
+      <label class="btn btn-primary" for="fileInput" title="Mở file .html từ máy tính">
+        📂 Mở file .HTML
+      </label>
+      <input type="file" id="fileInput" accept=".html,.htm" hidden />
+      <button id="downloadBtn" class="btn" title="Tải mã nguồn về máy">💾 Tải về</button>
+      <button id="sampleBtn" class="btn" title="Nạp lại code mẫu">✨ Code mẫu</button>
+      <button id="clearBtn" class="btn btn-danger" title="Xóa toàn bộ code">🗑️ Xóa</button>
+    </div>
+
+    <div class="toolbar-right">
+      <div class="device-group" title="Chọn kích thước màn hình xem trước">
+        <button class="device-btn active" data-width="100%">Tự do</button>
+        <button class="device-btn" data-width="768px">Tablet</button>
+        <button class="device-btn" data-width="375px">Mobile</button>
+      </div>
+      <button id="layoutBtn" class="btn" title="Đổi bố cục ngang / dọc">⇄ Bố cục</button>
+      <button id="fullscreenBtn" class="btn" title="Phóng to khung xem trước">⛶ Toàn màn hình</button>
+      <label class="auto-run-toggle" title="Tự động cập nhật khi gõ">
+        <input type="checkbox" id="autoRunCheck" checked />
+        <span>Tự chạy</span>
+      </label>
+      <button id="runBtn" class="btn btn-success" title="Chạy lại (Ctrl + Enter)">▶ Chạy</button>
+    </div>
+  </header>
+
+  <main id="workspace" class="workspace horizontal">
+    <!-- Editor Pane -->
+    <section id="editorPane" class="pane editor-pane">
+      <div class="pane-header">
+        <span>📝 Mã nguồn HTML / CSS / JS</span>
+        <span id="fileNameDisplay" class="meta-tag">index.html</span>
+      </div>
+      <div class="editor-wrapper">
+        <div id="lineNumbers" class="line-numbers">1</div>
+        <textarea id="codeEditor" spellcheck="false" placeholder="Dán mã HTML vào đây hoặc kéo thả file .html vào trang..."></textarea>
+      </div>
+    </section>
+
+    <!-- Resizer -->
+    <div id="resizer" class="resizer" title="Kéo để thay đổi kích thước"></div>
+
+    <!-- Preview Pane -->
+    <section id="previewPane" class="pane preview-pane">
+      <div class="pane-header">
+        <span>🌐 Xem trước trực tiếp</span>
+        <div class="preview-meta">
+          <span id="dimensionsDisplay" class="meta-tag">0 × 0 px</span>
+          <button id="exitFullscreenBtn" class="btn btn-small hidden">✕ Thoát toàn màn hình</button>
+        </div>
+      </div>
+      <div id="previewContainer" class="preview-container">
+        <iframe id="previewFrame" title="HTML Preview" sandbox="allow-scripts allow-modals allow-forms allow-popups allow-same-origin"></iframe>
+      </div>
+    </section>
+  </main>
+
+  <!-- Drag & Drop Overlay -->
+  <div id="dropOverlay" class="drop-overlay hidden">
+    <div class="drop-box">
+      <div class="drop-icon">📥</div>
+      <h2>Thả file .HTML vào đây để chạy ngay</h2>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
+</body>
+</html>
